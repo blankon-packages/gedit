@@ -1,0 +1,8 @@
+debian/gedit-icon.xpm /usr/share/pixmaps/
+usr/share/gedit/logo
+usr/share/gedit/plugins
+usr/share/glib-2.0
+usr/share/GConf
+usr/share/help
+usr/share/locale
+usr/share/man

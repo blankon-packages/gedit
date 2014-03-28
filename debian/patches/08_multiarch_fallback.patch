@@ -1,0 +1,68 @@
+Description: Also load plugins from pre-multiarch directory
+Author: Jeremy Bicha <jbicha@ubuntu.com>
+Forwarded: not-needed
+--- a/gedit/gedit-dirs.c
++++ b/gedit/gedit-dirs.c
+@@ -36,6 +36,7 @@
+ static gchar *gedit_locale_dir       = NULL;
+ static gchar *gedit_lib_dir          = NULL;
+ static gchar *gedit_plugins_dir      = NULL;
++static gchar *gedit_fallback_plugins_dir      = NULL;
+ static gchar *gedit_plugins_data_dir = NULL;
+ 
+ void
+@@ -111,6 +112,9 @@
+ 	gedit_plugins_dir = g_build_filename (gedit_lib_dir,
+ 					      "plugins",
+ 					      NULL);
++	gedit_fallback_plugins_dir = g_build_filename ("/usr/lib/gedit",
++					      "plugins",
++					      NULL);
+ 	gedit_plugins_data_dir = g_build_filename (gedit_data_dir,
+ 						   "plugins",
+ 						   NULL);
+@@ -127,6 +131,7 @@
+ 	g_free (gedit_locale_dir);
+ 	g_free (gedit_lib_dir);
+ 	g_free (gedit_plugins_dir);
++	g_free (gedit_fallback_plugins_dir);
+ 	g_free (gedit_plugins_data_dir);
+ }
+ 
+@@ -179,6 +184,12 @@
+ }
+ 
+ const gchar *
++gedit_dirs_get_gedit_fallback_plugins_dir (void)
++{
++	return gedit_fallback_plugins_dir;
++}
++
++const gchar *
+ gedit_dirs_get_gedit_plugins_data_dir (void)
+ {
+ 	return gedit_plugins_data_dir;
+--- a/gedit/gedit-dirs.h
++++ b/gedit/gedit-dirs.h
+@@ -48,6 +48,8 @@
+ 
+ const gchar	*gedit_dirs_get_gedit_plugins_dir	(void);
+ 
++const gchar	*gedit_dirs_get_gedit_fallback_plugins_dir	(void);
++
+ const gchar	*gedit_dirs_get_gedit_plugins_data_dir	(void);
+ 
+ gchar		*gedit_dirs_get_ui_file			(const gchar *file);
+--- a/gedit/gedit-plugins-engine.c
++++ b/gedit/gedit-plugins-engine.c
+@@ -98,6 +98,10 @@
+ 	                             gedit_dirs_get_gedit_plugins_dir (),
+ 	                             gedit_dirs_get_gedit_plugins_data_dir ());
+ 
++	peas_engine_add_search_path (PEAS_ENGINE (engine),
++	                             gedit_dirs_get_gedit_fallback_plugins_dir (),
++	                             gedit_dirs_get_gedit_plugins_data_dir ());
++
+ 	g_settings_bind (engine->priv->plugin_settings,
+ 	                 GEDIT_SETTINGS_ACTIVE_PLUGINS,
+ 	                 engine,
