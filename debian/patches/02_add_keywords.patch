@@ -2,12 +2,12 @@ Index: gedit-3.16.0/data/org.gnome.gedit.desktop.in.in
 ===================================================================
 --- gedit-3.16.0.orig/data/org.gnome.gedit.desktop.in.in
 +++ gedit-3.16.0/data/org.gnome.gedit.desktop.in.in
-@@ -15,7 +15,7 @@ X-GNOME-Bugzilla-Bugzilla=GNOME
- X-GNOME-Bugzilla-Product=gedit
- X-GNOME-Bugzilla-Component=general
+@@ -17,7 +17,7 @@ X-GNOME-Bugzilla-Component=general
  X-GNOME-Bugzilla-Version=@VERSION@
--X-GNOME-Bugzilla-ExtraInfoScript=@FULL_LIBEXECDIR@/gedit/gedit-bugreport.sh
-+X-GNOME-Bugzilla-ExtraInfoScript=@prefix@/share/gedit/gedit-bugreport
+ X-GNOME-Bugzilla-ExtraInfoScript=@prefix@/share/gedit/gedit-bugreport
  Actions=new-window;new-document;
- _Keywords=Text;Editor;
+-_Keywords=Text;Editor;
++_Keywords=Text;Editor;Plaintext;Write;
  DBusActivatable=true
+ 
+ [Desktop Action new-window]

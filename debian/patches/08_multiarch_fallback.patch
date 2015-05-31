@@ -1,9 +1,11 @@
 Description: Also load plugins from pre-multiarch directory
 Author: Jeremy Bicha <jbicha@ubuntu.com>
 Forwarded: not-needed
---- a/gedit/gedit-dirs.c
-+++ b/gedit/gedit-dirs.c
-@@ -36,6 +36,7 @@
+Index: gedit-3.10.4/gedit/gedit-dirs.c
+===================================================================
+--- gedit-3.10.4.orig/gedit/gedit-dirs.c	2014-02-04 10:26:15.676924460 +0000
++++ gedit-3.10.4/gedit/gedit-dirs.c	2014-02-04 10:26:15.672922461 +0000
+@@ -38,6 +38,7 @@
  static gchar *gedit_locale_dir       = NULL;
  static gchar *gedit_lib_dir          = NULL;
  static gchar *gedit_plugins_dir      = NULL;
@@ -11,7 +13,7 @@ Forwarded: not-needed
  static gchar *gedit_plugins_data_dir = NULL;
  
  void
-@@ -111,6 +112,9 @@
+@@ -113,6 +114,9 @@
  	gedit_plugins_dir = g_build_filename (gedit_lib_dir,
  					      "plugins",
  					      NULL);
@@ -21,7 +23,7 @@ Forwarded: not-needed
  	gedit_plugins_data_dir = g_build_filename (gedit_data_dir,
  						   "plugins",
  						   NULL);
-@@ -127,6 +131,7 @@
+@@ -129,6 +133,7 @@
  	g_free (gedit_locale_dir);
  	g_free (gedit_lib_dir);
  	g_free (gedit_plugins_dir);
@@ -29,7 +31,7 @@ Forwarded: not-needed
  	g_free (gedit_plugins_data_dir);
  }
  
-@@ -179,6 +184,12 @@
+@@ -181,6 +186,12 @@
  }
  
  const gchar *
@@ -42,9 +44,11 @@ Forwarded: not-needed
  gedit_dirs_get_gedit_plugins_data_dir (void)
  {
  	return gedit_plugins_data_dir;
---- a/gedit/gedit-dirs.h
-+++ b/gedit/gedit-dirs.h
-@@ -48,6 +48,8 @@
+Index: gedit-3.10.4/gedit/gedit-dirs.h
+===================================================================
+--- gedit-3.10.4.orig/gedit/gedit-dirs.h	2014-02-04 10:26:15.676924460 +0000
++++ gedit-3.10.4/gedit/gedit-dirs.h	2014-02-04 10:26:15.672922461 +0000
+@@ -50,6 +50,8 @@
  
  const gchar	*gedit_dirs_get_gedit_plugins_dir	(void);
  
@@ -53,9 +57,11 @@ Forwarded: not-needed
  const gchar	*gedit_dirs_get_gedit_plugins_data_dir	(void);
  
  gchar		*gedit_dirs_get_ui_file			(const gchar *file);
---- a/gedit/gedit-plugins-engine.c
-+++ b/gedit/gedit-plugins-engine.c
-@@ -98,6 +98,10 @@
+Index: gedit-3.10.4/gedit/gedit-plugins-engine.c
+===================================================================
+--- gedit-3.10.4.orig/gedit/gedit-plugins-engine.c	2014-02-04 10:26:15.676924460 +0000
++++ gedit-3.10.4/gedit/gedit-plugins-engine.c	2014-02-04 10:26:15.672922461 +0000
+@@ -108,6 +108,10 @@
  	                             gedit_dirs_get_gedit_plugins_dir (),
  	                             gedit_dirs_get_gedit_plugins_data_dir ());
  

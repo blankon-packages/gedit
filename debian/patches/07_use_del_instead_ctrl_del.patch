@@ -1,0 +1,19 @@
+From 9f30645e269cce029ceffaf13798ac72cc9a88c3 Mon Sep 17 00:00:00 2001
+From: Ignacio Casal Quinteiro <icq@gnome.org>
+Date: Mon, 04 Apr 2011 16:56:16 +0000
+Subject: Control+Delete to send files to the trash. Same as in nautilus.
+
+---
+Index: gedit-3.10.4/plugins/filebrowser/gedit-file-browser-widget.c
+===================================================================
+--- gedit-3.10.4.orig/plugins/filebrowser/gedit-file-browser-widget.c	2014-02-04 10:26:14.052112475 +0000
++++ gedit-3.10.4/plugins/filebrowser/gedit-file-browser-widget.c	2014-02-04 10:26:14.044108477 +0000
+@@ -2890,7 +2890,7 @@
+ 			delete_selected_files (obj, FALSE);
+ 			return TRUE;
+ 		}
+-		else if ((event->state & modifiers) == GDK_CONTROL_MASK)
++		else if ((event->state & modifiers) == 0)
+ 		{
+ 			delete_selected_files (obj, TRUE);
+ 			return TRUE;

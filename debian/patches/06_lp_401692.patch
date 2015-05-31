@@ -1,0 +1,28 @@
+Description: Patch to fix ubuntu bug #401692
+ This patch fixes ubuntu bug #401692 by setting the default name of a new
+ document to 'Untitled Document' in file gedit/gedit-document.c .
+
+Author: Bilal Akhtar <bilalakhtar96@yahoo.com>
+Bug-Ubuntu: https://launchpad.net/bugs/401692
+Index: gedit-3.10.4/gedit/gedit-document.c
+===================================================================
+--- gedit-3.10.4.orig/gedit/gedit-document.c	2014-02-04 10:26:12.735454488 +0000
++++ gedit-3.10.4/gedit/gedit-document.c	2014-02-04 10:26:12.731452489 +0000
+@@ -1263,7 +1263,7 @@
+ 
+ 	if (location == NULL)
+ 	{
+-		return g_strdup_printf (_("Unsaved Document %d"),
++		return g_strdup_printf (_("Untitled Document %d"),
+ 					doc->priv->untitled_number);
+ 	}
+ 	else
+@@ -1289,7 +1289,7 @@
+ 	}
+ 	else if (location == NULL)
+ 	{
+-		return g_strdup_printf (_("Unsaved Document %d"),
++		return g_strdup_printf (_("Untitled Document %d"),
+ 					doc->priv->untitled_number);
+ 	}
+ 	else

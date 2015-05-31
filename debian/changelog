@@ -1,144 +1,281 @@
-gedit (3.12.0-1blankon1) tambora; urgency=medium
+gedit (3.16.1-0blankon1) tambora; urgency=medium
 
-  * New upstream release.
+  * New upstream release
+  * Import from PPA GNOME3-TEAM
 
- -- Darian Rizaludin <driantrainman@gmail.com>  Fri, 28 Mar 2014 13:46:46 +0700
+ -- Mahyuddin <yudi.al@gmail.com>  Sun, 31 May 2015 14:32:14 +0700
 
-gedit (3.12.0-1) experimental; urgency=medium
+gedit (3.16.1-0ubuntu1~vivid1) vivid; urgency=medium
 
-  * Add valac-0.24 build-dependency for vala bindings generation.
-  * debian/gedit-dev.install: install vapi and deps.
-  * gedit: install appdata file.
-  * New upstream release.
+  * New upstream release
 
- -- Andreas Henriksson <andreas@fatal.se>  Wed, 26 Mar 2014 19:41:10 +0100
+ -- Tim Lunn <tim@feathertop.org>  Sun, 19 Apr 2015 12:25:57 +1000
 
-gedit (3.11.90-1) experimental; urgency=medium
+gedit (3.16.0-0ubuntu1~vivid1) vivid; urgency=medium
 
-  [ Laurent Bigonville ]
-  * debian/control.in: Depends against python3-gi-cairo instead of
-    python-gi-cairo as we are using python3 for the plugins
+  * New upstream release
+  * debian/patches: Refreshed
+    - 01_gedit-bugreport-location.patch
+    - 02_add_keywords.patch
 
-  [ Andreas Henriksson ]
-  * New upstream release.
-  * Bump build-dependencies according to configure.ac:
-    - intltool >= 0.50.1
-    - gtksourceview 3.11.2
-    - glib 2.39.5
-    - gtk+ 3.11.6
-  * Have quilt refresh debian/patches/08_multiarch_fallback.patch
+ -- Tim Lunn <tim@feathertop.org>  Thu, 26 Mar 2015 09:36:12 +1100
 
- -- Andreas Henriksson <andreas@fatal.se>  Wed, 19 Feb 2014 23:11:49 +0100
+gedit (3.15.91-0ubuntu1~vivid1) vivid; urgency=medium
 
-gedit (3.10.4-1) unstable; urgency=medium
+  * New upstream release
 
-  * New upstream release.
+ -- Tim Lunn <tim@feathertop.org>  Mon, 09 Mar 2015 09:12:31 +1100
+
+gedit (3.14.3-0ubuntu1~vivid1) vivid; urgency=medium
+
+  * New upstream release
   * debian/control.in:
-    - Bump Standards-Version to 3.9.5 (no further changes)
-    - Update Homepage URL
-  * Drop debian/gedit.lintian-overrides: Not needed anymore
+    - Bump build-deps accordingly
+  * debian/patches:
+    - Refreshed as needed
 
- -- Laurent Bigonville <bigon@debian.org>  Sun, 16 Feb 2014 23:35:05 +0100
+ -- Rico Tzschichholz <ricotz@ubuntu.com>  Fri, 27 Feb 2015 14:04:27 +0100
 
-gedit (3.10.1-1) experimental; urgency=low
+gedit (3.12.2-0ubuntu1~trusty1) trusty; urgency=medium
 
-  * New upstream release.
-  * Bump build-dependencies according to configure.ac:
-    - libglib2.0-dev to >= 2.37.5
-    - libgtk-3-dev to >= 3.9.0
-    - libgtksourceview-3.0-dev to >= 3.9.5
-  * Refresh patches to apply cleanly:
-    - debian/patches/08_multiarch_fallback.patch
-    - debian/patches/03_no_gnu_gettext.patch
-  * Drop debian/patches/snippets-cairo.patch
-    - now included in upstream release
+  * New upstream release
+  * debian/patches:
+    - git-Hold-ref-to-menus-stored-in-app.patch
 
- -- Andreas Henriksson <andreas@fatal.se>  Thu, 17 Oct 2013 17:22:59 +0200
+ -- Rico Tzschichholz <ricotz@ubuntu.com>  Mon, 30 Jun 2014 22:54:43 +0200
 
-gedit (3.8.3-4) unstable; urgency=low
+gedit (3.12.1-0ubuntu1~trusty1) trusty; urgency=medium
 
-  [ Andreas Henriksson ]
-  * Add debian/patches/snippets-cairo.patch (Closes: #724499)
-    - patch from upstream git to drop unused cairo import
+  * New upstream release
+  * debian/control.in:
+    - Bump build-dep on glib2.0 (>= 2.39.5), gtk+3.0 (>= 3.11.6),
+      libgtksourceview-3.0-dev (>= 3.11.2), valac-0.24 (>= 0.23.3)
+  * debian/patches:
+    - Drop 00git_state_property_type.patch, git_filebrowser_toolbar.patch,
+      fix_snippet_warning.patch, git_store_dialog.patch, 
+      git_save_run_tool_order.patch, fix_snippets_python34.patch
 
-  [ Michael Stummvoll ]
-  * Make gedit depend on gnome-icon-theme-symbolic (Closes: #676216)
-    - Search entry uses go-{up,down}-symbolic icons...
+ -- Rico Tzschichholz <ricotz@ubuntu.com>  Fri, 18 Apr 2014 09:28:17 +0200
 
- -- Andreas Henriksson <andreas@fatal.se>  Sun, 06 Oct 2013 21:56:59 +0200
+gedit (3.10.4-0ubuntu4) trusty; urgency=medium
 
-gedit (3.8.3-3) unstable; urgency=low
+  * Add 00git_state_property_type.patch: Fix type of GeditWindow state
+    property, to avoid crashes with autopilot when introspecting it.
+    (LP: #1283966)
 
-  * Upload to unstable.
-  * Properly exclude gedit plugin directory from dh_makeshlibs.
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 26 Mar 2014 15:34:58 +0100
 
- -- Michael Biebl <biebl@debian.org>  Thu, 01 Aug 2013 17:41:20 +0200
+gedit (3.10.4-0ubuntu3) trusty; urgency=medium
 
-gedit (3.8.3-2) experimental; urgency=low
+  * Fix snippets plugin with Python 3.4 (LP: #1282607)
 
-  [ Jeremy Bicha ]
-  * debian/rules:
-    - Drop obsolete --disable-scrollkeeper configure flag
-    - Fix install directories from last upload
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Thu, 20 Feb 2014 09:56:39 -0500
 
- -- Andreas Henriksson <andreas@fatal.se>  Thu, 01 Aug 2013 11:46:14 +0200
+gedit (3.10.4-0ubuntu2) trusty; urgency=medium
 
-gedit (3.8.3-1) experimental; urgency=low
+  * debian/patches/git_store_dialog.patch: tweaks to the save files dialog, 
+    give enough space to list several documents (lp: #988946)
+  * debian/patches/git_save_run_tool_order.patch: 
+    - save the *modified* documents before running a tool (lp: #1244338)
 
-  [ Thomas Bechtold ]
-  * New upstream release.
+ -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 10 Feb 2014 16:49:22 +0100
 
-  [ Jeremy Bicha ]
-  * Bump dh compat to 9 and update install directories
+gedit (3.10.4-0ubuntu1) trusty; urgency=medium
+
+  * New upstream release
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Tue, 04 Feb 2014 10:25:10 +0000
+
+gedit (3.10.3-0ubuntu3) trusty; urgency=medium
+
+  * debian/patches/fix_snippet_warning.patch: fix deprecation warning in
+    the snippet plugin. (LP: #1270458)
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Sat, 18 Jan 2014 12:27:20 -0500
+
+gedit (3.10.3-0ubuntu2) trusty; urgency=medium
+
+  * debian/patches/git_filebrowser_toolbar.patch:
+    - use correct toolbar styling, thanks Lars Uebernickel (lp: #1260761)
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Fri, 10 Jan 2014 15:57:37 +0100
+
+gedit (3.10.3-0ubuntu1) trusty; urgency=medium
+
+  * New upstream version
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 07 Jan 2014 11:39:52 +0100
+
+gedit (3.10.2-0ubuntu1) trusty; urgency=medium
+
+  * New upstream release
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Tue, 17 Dec 2013 12:47:09 +1300
+
+gedit (3.10.1-0ubuntu1) trusty; urgency=low
+
+  * New upstream version, 3.10 has mostly bug fixes and small improvements
+  * debian/control.in: 
+    - recommends gir1.2-gtksource-3.0, since some ofthe plugins import it 
+      (lp: #1239130)
+    - updated depends on glib, gtk and gtksourceview
+  * debian/gedit-common.install: install the new appdata directory
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 12 Dec 2013 15:47:50 +0100
+
+gedit (3.8.3-0ubuntu3) saucy; urgency=low
+
   * Mark gedit-dev Architecture: any
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Sun, 14 Jul 2013 00:00:36 -0400
+
+gedit (3.8.3-0ubuntu2) saucy; urgency=low
+
+  * Bump dh compat to 9 and update install directories
   * debian/patches/08_multiarch_fallback.patch:
     - Load plugins from the non-multiarch directory too for
       compatibility with existing packages
 
- -- Andreas Henriksson <andreas@fatal.se>  Wed, 31 Jul 2013 15:00:49 +0200
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Sat, 13 Jul 2013 22:07:36 -0400
 
-gedit (3.8.0-1) experimental; urgency=low
+gedit (3.8.3-0ubuntu1) saucy; urgency=low
+
+  * New upstream release
+  * debian/control.in:
+    - Build-depend on libzeitgeist-2.0-dev instead of libzeitgeist-dev
+  * debian/patches/07_use_del_instead_ctrl_del.patch:
+    - Use Delete, not Ctrl+Delete, to delete files in file browser
+      side panel to match our Nautilus behavior (LP: #1163287)
+  * debian/patches/10_add_zeitgeist_to_active_plugins.patch:
+    - Dropped, replaced by override in ubuntu-settings &
+      ubuntu-gnome-default-settings
+  * debian/patches/revert_new_libzg_depends.patch:
+    - Dropped, no longer needed
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Wed, 26 Jun 2013 17:13:08 -0400
+
+gedit (3.8.2-0ubuntu1) saucy; urgency=low
+
+  * New upstream version
+  * debian/patches/revert_new_libzg_depends.patch:
+    - revert the port to the new libzg until we get that one
+    
+  [ Jeremy Bicha ]
+  * debian/control.in:
+    - Depend on python3-gi instead of python-gi
+    - Drop libsm and libice from build-depends, they are no longer needed.
+
+  [ Rico Tzschichholz ]
+  * debian/control.in:
+    - Bump build-depends on libgtk-3-dev (>= 3.7.10),
+      libgtksourceview-3.0-dev (>= 3.2.0)
+
+  [ Robert Ancell ]
+  * debian/control.in:
+    - Use standards version 3.9.4
+    - Bump build-depends on libglib2.0-dev and libpeas-dev
+    - Bump python depends
+  * debian/rules:
+    - Use Python 3
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Fri, 24 May 2013 18:58:18 +0200
+
+gedit (3.6.2-0ubuntu1) raring; urgency=low
+
+  * New upstream release
+  * debian/patches/git_new_win_no_tab.patch:
+    - Applied upstream
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Tue, 13 Nov 2012 12:57:29 +1300
+
+gedit (3.6.1-0ubuntu3) raring; urgency=low
+
+  * debian/patches/git_new_win_no_tab.patch:
+    - don't create new instances with several tabs (lp: #965510)
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 12 Nov 2012 11:17:49 +0100
+
+gedit (3.6.1-0ubuntu2) raring; urgency=low
+
+  * Upload to raring
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 05 Nov 2012 18:07:17 +0100
+
+gedit (3.6.1-0ubuntu1) quantal-proposed; urgency=low
+
+  * New upstream bug fix version (lp: #1070771)
+    - File Browser side panel improvements
+    - Fix print preview in landscape mode
+    - Misc bugfixes
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 24 Oct 2012 12:50:11 +0200
+
+gedit (3.6.0-0ubuntu1) quantal; urgency=low
+
+  * New upstream stable release
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Tue, 25 Sep 2012 10:01:38 +1200
+
+gedit (3.5.3-0ubuntu1) quantal; urgency=low
+
+  * New upstream bugfix release
+  * debian/patches/quicklist-new-document:
+    - Applied upstream
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Thu, 20 Sep 2012 10:42:31 +1200
+
+gedit (3.5.2-0ubuntu1) quantal; urgency=low
+
+  * New upstream release
+  * debian/rules:
+    - Run additional steps required for autoreconf
+  * debian/patches/03_no_gnu_gettext.patch:
+    - Can't use both IT_PROG_INTLTOOL and AM_GNU_GETTEXT
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Fri, 31 Aug 2012 17:19:38 +1200
+
+gedit (3.5.1-0ubuntu2) quantal; urgency=low
+
+  * Pass --new-document instead of --new-window in the "Open a New Document"
+    action. (LP: #1027584) 
+
+ -- Iain Lane <iain.lane@canonical.com>  Mon, 23 Jul 2012 11:09:02 +0100
+
+gedit (3.5.1-0ubuntu1) quantal; urgency=low
 
   * New upstream release
 
- -- Thomas Bechtold <thomasbechtold@jpberlin.de>  Thu, 28 Mar 2013 08:58:54 +0100
+ -- Robert Ancell <robert.ancell@canonical.com>  Mon, 23 Jul 2012 09:45:16 +1200
 
-gedit (3.7.6-1) experimental; urgency=low
+gedit (3.4.2-1ubuntu1) quantal; urgency=low
 
-  [ Jeremy Bicha ]
-  * Merge with Ubuntu
-  * New upstream release.
+  * Rebase on Debian unstable, remaining Ubuntu changes:
   * debian/control:
-    - Use standards version 3.9.4
-    - Bump build-depends on libglib2.0-dev, libgtk-3-dev, libpeas-dev, and
-      libgtksourceview-3.0-dev
-  * debian/control.in, debian/rules:
-    - Use Python 3
-  * debian/patches/01_gedit-bugreport-location.patch: Refreshed
+    - Add build-depends on libzeitgeist-dev
+  * debian/rules:
+    - Build without --Bsymbolic-functions to fix issues
+  * debian/watch:
+    - Watch for unstable versions
+  * debian/patches/02_add_keywords.patch:
+    - Add new keywords for unity and gnome-shell
+  * debian/patches/05_menu_label.patch:
+    - Don't display in menu as "gedit Text Editor"
+  * debian/patches/06_lp_401692.patch:
+    - Default name of a new document is now 'Untitled Document'.
+  * debian/patches/10_add_zeitgeist_to_active_plugins.patch:
+    - Enable the zeitgeist plugin by default
 
-  [ Thomas Bechtold ]
-  * New upstream release.
+ -- Robert Ancell <robert.ancell@canonical.com>  Mon, 28 May 2012 16:41:45 +1200
 
-  [ Emilio Pozuelo Monfort ]
-  * debian/control.in:
-    + Remove libsm and libice from build depends, they are no longer
-      needed.
-    + Bump gedit-dev's dependencies.
+gedit (3.4.1-0ubuntu2) quantal; urgency=low
 
- -- Emilio Pozuelo Monfort <pochu@debian.org>  Sun, 24 Mar 2013 11:01:12 +0100
+  * debian/control:
+    - Use standards version 3.9.3
+    - Drop dependency on liblaunchpad-integration-3.0-dev
+  * debian/patches/01_lpi.patch:
+    - Dropped, we no longer do Launchpad integration
 
-gedit (3.6.2-1) experimental; urgency=low
-
-  [ Josselin Mouette ]
-  * gedit.prerm: don’t remove the alternative when upgrading.
-
-  [ Andreas Henriksson ]
-  * New upstream release.
-    - bump libgtk-3-dev build-dependency to >= 3.6.0.
-    - update 01_gedit-bugreport-location.patch to apply.
-    - add 03_no_gnu_gettext.patch, stolen from ubuntu.
-
- -- Andreas Henriksson <andreas@fatal.se>  Mon, 10 Dec 2012 00:58:45 +0100
+ -- Robert Ancell <robert.ancell@canonical.com>  Mon, 14 May 2012 15:53:15 +1200
 
 gedit (3.4.2-1) unstable; urgency=low
 
@@ -174,6 +311,116 @@ gedit (3.4.1-1) unstable; urgency=low
 
  -- Michael Biebl <biebl@debian.org>  Sun, 22 Apr 2012 20:18:57 +0200
 
+gedit (3.4.1-0ubuntu1) precise-proposed; urgency=low
+
+  * New upstream version
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 16 Apr 2012 21:13:04 +0200
+
+gedit (3.4.0-0ubuntu1) precise-proposed; urgency=low
+
+  * New upstream release:
+    - Translation updates
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Tue, 27 Mar 2012 11:16:47 +1100
+
+gedit (3.3.8-0ubuntu1) precise; urgency=low
+
+  * New upstream version
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 20 Mar 2012 20:05:57 +0100
+
+gedit (3.3.7-0ubuntu2) precise; urgency=low
+
+  * Really dropped the action group patch which is in the new version
+  * debian/control.in, debian/gedit.install, debian/gedit-dev.install:
+    - install the gi override in the main binary, needed at runtime
+      (lp: #953957)
+  * debian/patches/05_menu_label.patch:
+    - updated to list the action group at the end and solve parsing issues
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 13 Mar 2012 15:35:19 +0100
+
+gedit (3.3.7-0ubuntu1) precise; urgency=low
+
+  * New upstream version
+  * debian/patches/03_add_unity_quicklist.patch:
+    - drop, the patch is included in the new version
+  * debian/rules: build without --Bsymbolic-functions to fix issues
+
+  [ Jeremy Bicha ]
+  * New upstream release
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 06 Mar 2012 21:19:05 +0100
+
+gedit (3.3.5-0ubuntu2) precise; urgency=low
+
+  * Break below in 2 patches
+  * Fix incorrect quicklist placement
+
+  [ Nekhelesh Ramananthan ] 
+  * debian/patches/02_add_keywords.patch:
+    - add new keywords for unity and gnome-shell
+  * debian/patches/03_add_unity_quicklist.patch:
+    - add static quicklist for unity
+
+ -- Didier Roche <didrocks@ubuntu.com>  Mon, 05 Mar 2012 16:50:52 +0100
+
+gedit (3.3.5-0ubuntu1) precise; urgency=low
+
+  * New upstream release.
+  * debian/control.in: Bump minimum GTK to 3.3.15
+    for switch to GResource
+  * debian/gedit-common.install: Drop ui install
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Fri, 02 Mar 2012 18:28:56 -0500
+
+gedit (3.3.4-0ubuntu1) precise; urgency=low
+
+  * New upstream release.
+    - Improved help
+    - Fixed bugs (including several memory leaks)
+  * debian/control.in:
+    - Build-depends on yelp-tools instead of gnome-doc-utils & scrollkeeper
+  * debian/gedit-common.install:
+    - Updated for new help install location
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Wed, 22 Feb 2012 21:54:14 -0500
+
+gedit (3.3.3-0ubuntu1) precise; urgency=low
+
+  * New upstream version:
+    - correctly re-use running instance (lp: #777292)
+    - use correct menuitem separator (lp: #902814)
+  * debian/gedit-dev.install:
+    - updated to include the pygobject override
+  * debian/patches/11_correct_gettext_domain.patch:
+    - dropped, the fix is in the new version
+  * debian/patches/git_invalid_unrefing.patch:
+    - dropped, the fix is in the new version
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 06 Feb 2012 22:57:01 +0100
+
+gedit (3.3.2-0ubuntu3) precise; urgency=low
+
+  * debian/patches/git_invalid_unrefing.patch:
+    - don't call unref on tab close, that leads to segfaults (lp: #903975)
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 01 Feb 2012 16:04:02 +0100
+
+gedit (3.3.2-0ubuntu2) precise; urgency=low
+
+  * debian/patches/11_correct_gettext_domain.patch:
+    - correctly define the gettext domain
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 26 Jan 2012 21:46:30 +0100
+
+gedit (3.3.2-0ubuntu1) precise; urgency=low
+
+  * New upstream version
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 09 Jan 2012 15:12:28 +0100
+
 gedit (3.2.6-1) unstable; urgency=low
 
   [ Josselin Mouette ]
@@ -183,6 +430,25 @@ gedit (3.2.6-1) unstable; urgency=low
   * New upstream release.
 
  -- Michael Biebl <biebl@debian.org>  Wed, 04 Jan 2012 14:56:25 +0100
+
+gedit (3.2.6-0ubuntu1) precise; urgency=low
+
+  * New upstream version
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 04 Jan 2012 11:23:35 +0100
+
+gedit (3.2.5-0ubuntu1) precise; urgency=low
+
+  * Rebase on Debian 3.2.3-1, remaining changes:
+    - Port to dh_python2
+    - debian/patches/01_lpi.patch: Add Launchpad integration
+    - debian/patches/05_menu_label.patch: Drop 'gedit' from menu name
+    - debian/patches/06_lp_401692.patch: Use 'Untitled Document'
+    - debian/patches/10_add_zeitgeist_to_active_plugins.patch: Use zeitgeist
+    - debian/watch: Watch unstable releases too
+  * New upstream release.
+
+ -- Michael Terry <mterry@ubuntu.com>  Fri, 09 Dec 2011 14:43:51 -0500
 
 gedit (3.2.5-1) unstable; urgency=low
 
@@ -208,6 +474,125 @@ gedit (3.2.3-1) unstable; urgency=low
     - Track .xz tarballs.
 
  -- Michael Biebl <biebl@debian.org>  Sun, 20 Nov 2011 22:44:36 +0100
+
+gedit (3.2.3-0ubuntu1) precise; urgency=low
+
+  * New upstream version
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 21 Nov 2011 11:32:25 +0100
+
+gedit (3.2.2-0ubuntu1) precise; urgency=low
+
+  [ Manish Sinha ]
+  * Append libzeitgeist-dev as build-depends and libzeitgeist-1.0-1 as 
+    gedit dependency to enable zeitgeist-dataprovider plugin
+
+  [ Didier Roche ]
+  * New upstream version:
+    - More help awesome (Jim Campbell)
+    - Misc bugfixes
+    - New and updated translations
+  * debian/control.in:
+    - remove the hard dep on libzeitgeist-1.0-1, let dh_shlibdeps do the
+      work
+  * debian/patches/10_add_zeitgeist_to_active_plugins.patch:
+    - enable the zeitgeist plugin by default
+
+ -- Didier Roche <didrocks@ubuntu.com>  Sat, 12 Nov 2011 17:12:45 +0100
+
+gedit (3.2.1-0ubuntu1) oneiric-proposed; urgency=low
+
+  * New upstream version (LP: #876592)
+   - More help awesome (Jim Campbell)
+   - Use GtkGrid in the replace dialog. (Paolo Borelli)
+   - Misc bugfixes
+   - New and updated translations
+  * debian/control.in:
+    - require latest python-gobject-dev
+
+ -- Didier Roche <didrocks@ubuntu.com>  Mon, 17 Oct 2011 16:41:39 +0200
+
+gedit (3.2.0-0ubuntu1) oneiric; urgency=low
+
+  * New upstream version
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 26 Sep 2011 22:28:41 +0200
+
+gedit (3.1.6-0ubuntu1) oneiric; urgency=low
+
+  * New upstream version
+  * debian/gedit.install: updated for the new version
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 19 Sep 2011 21:38:57 +0200
+
+gedit (3.1.5-0ubuntu1) oneiric; urgency=low
+
+  * New upstream release.
+  * Drop 07_revert_pygobject_bump.patch, we now do want to build against
+    pygobject 3. Bump build dependency in debian/control.in accordingly.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Tue, 06 Sep 2011 16:20:26 +0200
+
+gedit (3.1.4-0ubuntu1) oneiric; urgency=low
+
+  * New upstream version
+  * Refresh debian/patches/01_gedit-bugreport-location.patch
+  * Revert upstream commit to bump the minimum pygobject version. It doesn't
+    look like anything actually requires it, so we don't need to block
+    on the new version
+    - add debian/patches/07_revert_pygobject_bump.patch
+    - update debian/patches/series
+
+ -- Chris Coulson <chris.coulson@canonical.com>  Mon, 22 Aug 2011 13:09:05 +0100
+
+gedit (3.1.3-0ubuntu1) oneiric; urgency=low
+
+  * New upstream version, clean patches which are in the new version
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 04 Aug 2011 11:48:53 +0200
+
+gedit (3.1.2-0ubuntu1) oneiric; urgency=low
+
+  * New upstream release.
+  * debian/control.in:
+    - Bump libpeas requirement to 1.1.0
+  * debian/patches/07_unity_quicklist.patch:
+    - Refreshed and stopped from patching a generated version of the
+      desktop file
+
+ -- Michael Terry <mterry@ubuntu.com>  Tue, 12 Jul 2011 15:21:03 -0400
+
+gedit (3.1.1-0ubuntu4) oneiric; urgency=low
+
+  * debian/rules
+    - Call dh_python2 twice to build for both public and private
+      modules.
+
+ -- Barry Warsaw <barry@ubuntu.com>  Tue, 28 Jun 2011 04:36:52 +0100
+
+gedit (3.1.1-0ubuntu3) oneiric; urgency=low
+
+  * debian/control.in, debian/rules
+    - Convert to dh_python2.  (LP: #788514)
+
+ -- Barry Warsaw <barry@ubuntu.com>  Mon, 27 Jun 2011 16:30:43 +0100
+
+gedit (3.1.1-0ubuntu2) oneiric; urgency=low
+
+  * debian/patches/07_unity_quicklist.patch: Add Unity static quicklist
+    items for Create a New Document and Open a New Window. 
+
+ -- Bilal Akhtar <bilalakhtar@ubuntu.com>  Tue, 07 Jun 2011 17:54:14 +0530
+
+gedit (3.1.1-0ubuntu1) oneiric; urgency=low
+
+  * New upstream release.
+  * debian/control.in:
+    - Require GTK+ 3.1.6
+  * debian/watch:
+    - Look at unstable releases too
+
+ -- Michael Terry <mterry@ubuntu.com>  Mon, 27 Jun 2011 05:29:37 -0400
 
 gedit (3.0.6-2) unstable; urgency=low
 
@@ -249,6 +634,63 @@ gedit (3.0.6-1) unstable; urgency=low
     - Pass private directories to dh_girepository to look for dependencies.
 
  -- Michael Biebl <biebl@debian.org>  Fri, 22 Jul 2011 19:40:13 +0200
+
+gedit (3.0.5-0ubuntu1) oneiric; urgency=low
+
+  * New upstream version
+
+ -- Rodrigo Moya <rodrigo.moya@canonical.com>  Fri, 17 Jun 2011 10:16:57 +0200
+
+gedit (3.0.4-0ubuntu2) oneiric; urgency=low
+
+  * control.in: recommends gir1.2-gtksource-3.0 (lp: #791760)
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Fri, 03 Jun 2011 12:41:04 +0200
+
+gedit (3.0.4-0ubuntu1) oneiric; urgency=low
+
+  * New upstream version
+  * debian/patches/07_intltool.patch:
+    - Remove upstreamed patch
+
+ -- Rodrigo Moya <rodrigo.moya@canonical.com>  Wed, 01 Jun 2011 10:14:40 +0200
+
+gedit (3.0.3-0ubuntu1) oneiric; urgency=low
+
+  * New upstream version
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 25 May 2011 13:44:08 +0200
+
+gedit (3.0.2-0ubuntu1) oneiric; urgency=low
+
+  * New upstream version
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 04 May 2011 12:48:15 +0200
+
+gedit (3.0.0-1ubuntu1) oneiric; urgency=low
+
+  * Resynchronize on Debian, remaining diffs
+  * debian/control.in:
+    - Build-Depends on dh-autoreconf, gnome-common, liblaunchpad-integration
+    - Conflicts gir1.2-gedit-3.0 for ppa upgrades, Debian ship the gir in gedit
+    - don't Recommends python-gnome2
+    - don't Build-Depends on libgconf2-dev nor libx11-dev
+  * debian/gedit.install:
+    - install the gi override
+  * debian/patches/01_lpi.patch:
+    - Launchpad integration
+  * debian/patches/05_menu_label.patch:
+    - Don't display in menu as "gedit Text Editor"
+  * debian/patches/06_lp_401692.patch:
+    - Default name of a new document is now 'Untitled Document'.
+  * debian/patches/07_intltool.patch:
+    - Don't use both Intltool and GNU gettext build system
+  * debian/patches/90_autoreconf.patch:
+    - Obsolete as run from debian/rules
+  * debian/rules:
+    - Use autoreconf.mk
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 04 May 2011 12:36:25 +0200
 
 gedit (3.0.0-1) experimental; urgency=low
 

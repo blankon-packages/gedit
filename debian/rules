@@ -1,5 +1,7 @@
 #!/usr/bin/make -f
 
+LDFLAGS=$(shell echo $$LDFLAGS | sed -e 's/-Wl,-Bsymbolic-functions//')
+
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/rules/utils.mk
 include /usr/share/cdbs/1/rules/autoreconf.mk
@@ -18,9 +20,15 @@ binary-install/gedit::
 
 LDFLAGS += -Wl,-O1 -Wl,--as-needed
 
-DEB_CONFIGURE_EXTRA_FLAGS += --enable-gtk-doc \
+DEB_DH_AUTORECONF_ARGS := $(CURDIR)/debian/rules reconf
+DEB_CONFIGURE_EXTRA_FLAGS += --disable-scrollkeeper --enable-gtk-doc \
 	--libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH)
 
-DEB_DH_MAKESHLIBS_ARGS_gedit += -X/usr/lib/$(DEB_HOST_MULTIARCH)/gedit
+DEB_DH_MAKESHLIBS_ARGS_gedit += -X/usr/lib/*/gedit
 
 DEB_DH_GIREPOSITORY_ARGS_gedit += -ldebian/tmp/usr/share/gedit/gir-1.0 /usr/lib/gedit/girepository-1.0
+
+reconf:
+	intltoolize --force --copy --automake
+	gtkdocize
+	autoreconf -f -i -v

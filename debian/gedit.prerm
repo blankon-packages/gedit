@@ -2,8 +2,19 @@
 
 set -e
 
-if [ "$1" = remove ]; then
+case "$1" in
+    remove|upgrade|deconfigure)
+        # unregister gedit as a gnome-text-editor in the alternatives system
         update-alternatives --remove gnome-text-editor /usr/bin/gedit || true
-fi
+    ;;
+
+    failed-upgrade)
+    ;;
+
+    *)
+        echo "prerm called with unknown argument \`$1'" >&2
+        exit 0
+    ;;
+esac
 
 #DEBHELPER#

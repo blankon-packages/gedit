@@ -6,7 +6,6 @@ usr/lib/*/gedit/plugins/*.so
 usr/lib/*/gedit/plugins/*/*.py
 usr/lib/*/gedit/*.so
 usr/lib/python*
-usr/share/applications/gedit.desktop
+usr/share/applications/org.gnome.gedit.desktop
 usr/share/dbus-1/
 debian/script /usr/share/bug/gedit/
-usr/share/appdata/gedit.appdata.xml
